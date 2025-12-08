@@ -460,3 +460,4 @@ Trong glibc 2.35, nó đã bỏ `__free_hook()` và `__malloc_hook()` và thêm 
 
 Hướng exploit còn lại theo mình nghĩ là sẽ sử dụng `Fsop`, nhưng mình vừa học heap mới 1 thời gian nên khá khó với mình để có thể solve được challenge này....
 
+Và ở trên là 2 challenge mình đã dành nhiều thời gian để làm trong event lần này. Mong mọi người đọc và góp ý thêm ạ.
