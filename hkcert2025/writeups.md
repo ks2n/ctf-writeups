@@ -285,10 +285,10 @@ __int64 sandbox()
 ```
 
 Trong các gadget, vì ta có gadget `pop rbp`, và có thể overwrite `saved rbp` nên ta có thể gọi gadet bên dưới để đọc vào 1 địa chỉ bất kì. 
-![alt text](/images/stop-1.png)
+![alt text](./images/stop-1.png)
 
 Ngoài ra, khi ta gọi `seccomp_load` thì giá trị của thanh ghi `rdi` sau khi hàm thực thi xong nó không thay đổi. Do đó ta có thể lợi dung nó để control thanh ghi `rdi`.
-![alt text](/images/stop-2.png)
+![alt text](./images/stop-2.png)
 
 ### Ý tưởng khai thác
 Đầu tiên mình sẽ control thanh ghi `rdi` vào địa chỉ chứa `libc address`, sau đó gọi `puts@plt` để `leak libc` và tính `libc base address`.
@@ -660,7 +660,7 @@ for i in range(1, 100):
     p.interactive()
 ```
 
-![alt text](/images/link_start-1.png)
+![alt text](./images/link_start-1.png)
 
 ## compress
 ### Mô tả
@@ -810,7 +810,7 @@ pwndbg> tel 0x728363ff6e50
 ### Ý tưởng khai thác
 Vì content mang địa chỉ của libc và ta có thể tính khoảng cách và ghi tùy ý xung quanh địa chỉ đó. Do vậy mình sẽ sử dụng fsop để open read write flag (seccomp filter execve).
 
-![alt text](/images/compress-1.png)
+![alt text](./images/compress-1.png)
 
 Mình sẽ ghi đè lên stdout FILE struct.
 
@@ -881,4 +881,5 @@ payload += p64(pivot_gadget)
 p.sendafter(b'Content:', payload)
 p.interactive()
 ```
-![alt text](/images/compress-2.png)
+![alt text](./images/compress-2.png)
+
